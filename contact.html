@@ -95,18 +95,6 @@
             <p>
               <a href="mailto:oezlem.clk1@gmail.com"> oezlem.clk1@gmail.com </a>
             </p>
-            <h3>Twitter</h3>
-            <p>
-              <a href="https://www.twitter.com/oezlem" target="_blank">
-                 @oezlem
-              </a>
-            </p>
-            <h3>Instagram</h3>
-            <p>
-              <a href="https://www.instagram.com/oezlem.codes" target="_blank">
-                @oezlem.codes
-              </a>
-            </p>
           </div>
         </div>
       </div>
@@ -143,20 +131,6 @@
           >
             <i class="fab fa-github"></i>
           </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            title="instragram Profile"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a
-            href="https://www.twitter.com/"
-            target="_blank"
-            title="Twitter Profile"
-          >
-            <i class="fab fa-twitter"></i>
-          </a>
         </div>
             <p class="text-center mt-5">
         ✌️ This website was coded by Özlem Celik, and is
@@ -168,6 +142,38 @@
         </a>
       </p>
     </footer>
+        <script>
+        document.getElementById('contactForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            try {
+                const response = await fetch('https://formspree.io/YOUR_FORM_ENDPOINT', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, message }),
+                });
+
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                } else {
+                    alert('Failed to send message.');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+        const response = await fetch('https://formspree.io/f/your-form-id', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, message }),
+      });
+    </script>
   </body>
 </html>
 
